@@ -74,7 +74,7 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_id'])) {
             <input type="text" id="search-input" placeholder="Search for safety techniques..."
               onkeyup="searchDatabase()" />
         </div>
-        <br><br><br><br><br>
+        <br>
         <!-- Search Results -->
         <div id="search-results">
           <!-- Search results will be displayed here -->

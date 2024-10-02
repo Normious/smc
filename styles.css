@@ -1459,3 +1459,35 @@ input {
   width: 50px;
   height: 50px;
 }
+
+/*Webservices*/
+/* Styling for the Quote Section */
+.quote-section {
+  padding: 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#quote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #333;
+  margin-top: 10px;
+}
+
+/* Styling for IP Geolocation and GitHub Profile in Footer */
+.location-section{
+  text-align: center;
+  color: #fff;
+  float: left;
+}
+
+.github-section{
+  text-align: center;
+  color: #fff;
+  float: right;
+}
+
+#github-title{
+  color: #fff;
+}

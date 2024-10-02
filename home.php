@@ -73,7 +73,7 @@ session_start();
       <?php endif; ?>
       <h2>Stay Safe Online</h2>
       <p>Discover the best practices to keep teens safe on social media.</p>
-      <button class="cta-btn">Learn More</button>
+      <a href="safety-tips.php"><button class="cta-btn">Learn More</button></a>
     </div>
     <div class="hero-image">
       <img src="images/hero-social.png" alt="Social Media Safety" />
@@ -99,6 +99,14 @@ session_start();
     </div>
   </section>
   <br>
+  <!-- Daily Quotes Section -->
+  <section class="quote-section">
+    <h3>Daily Quote</h3>
+    <div id="quote-container">
+      <p id="quote">Loading quote...</p> <!-- Default loading message -->
+    </div>
+  </section>
+
   <!-- Popular Social Media Section -->
   <h3>Most Popular Social Media Apps</h3>
   <section class="popular-apps">
@@ -108,9 +116,10 @@ session_start();
           <div class="content-box">
             <span class="card-title">Facebook</span>
             <p class="card-content">
-              Facebook is a social networking service that allows users to share updates, photos, and videos with friends and followers.
+              Facebook is a social networking service that allows users to share updates, photos, and videos with
+              friends and followers.
             </p>
-            <span class="see-more">See More</span>
+            <span class="see-more"><a href="apps.php">See More</a></span>
           </div>
           <div class="d-socials">
             <img src="images/facebook.png" alt="Facebook" />
@@ -123,9 +132,10 @@ session_start();
         <div class="content-box">
           <span class="card-title">Twitter</span>
           <p class="card-content">
-            Twitter is a social networking service that allows users to share short messages (called "tweets") with their followers.
+            Twitter is a social networking service that allows users to share short messages (called "tweets") with
+            their followers.
           </p>
-          <span class="see-more">See More</span>
+          <span class="see-more"><a href="apps.php">See More</a></span>
         </div>
         <div class="d-socials">
           <img src="images/twitter.png" alt="Twitter" />
@@ -140,7 +150,7 @@ session_start();
           <p class="card-content">
             Instagram is a social networking service that allows users to share photos and videos with their followers.
           </p>
-          <span class="see-more">See More</span>
+          <span class="see-more"><a href="apps.php">See More</a></span>
         </div>
         <div class="d-socials">
           <img src="images/instagram.png" alt="Instagram" />
@@ -153,9 +163,10 @@ session_start();
         <div class="content-box">
           <span class="card-title">Snapchat</span>
           <p class="card-content">
-            Snapchat is a social networking service that allows users to send photos and videos that disappear after a maximum of 10 seconds.
+            Snapchat is a social networking service that allows users to send photos and videos that disappear after a
+            maximum of 10 seconds.
           </p>
-         <span class="see-more">See More</span>
+          <span class="see-more"><a href="apps.php">See More</a></span>
         </div>
         <div class="d-socials">
           <img src="images/snapchat.png" alt="Snapchat" />
@@ -167,16 +178,22 @@ session_start();
 
 
 
-     <!-- Footer -->
-     <footer>
-  <div class="footer-socials">
-    <a href="https://www.facebook.com/"><img src="images/facebook.png" alt="Facebook" /></a>
-    <a href="https://www.x.com"><img src="images/twitter.png" alt="Twitter" /></a>
-    <a href="https://www.instagram.com"><img src="images/instagram.png" alt="Instagram" /></a>
-  </div>
-  <p>&copy; 2024 SMC Ltd. 
-    You Are Here: 
-    <?php
+  <!-- Footer -->
+  <footer>
+    <div class='float'>
+      <!-- GitHub Profile Section -->
+      <div class="github-section">
+        <h3 id="github-title">Dev's GitHub Profile</h3>
+        <p id="github-profile"></p>
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.facebook.com/"><img src="images/facebook.png" alt="Facebook" /></a>
+        <a href="https://www.x.com"><img src="images/twitter.png" alt="Twitter" /></a>
+        <a href="https://www.instagram.com"><img src="images/instagram.png" alt="Instagram" /></a>
+      </div>
+      <p>&copy; 2024 SMC Ltd.
+        You Are Here:
+        <?php
       $currentPage = basename($_SERVER['REQUEST_URI']);
       switch ($currentPage) {
         case 'home.php':
@@ -216,8 +233,14 @@ session_start();
           echo $currentPage;
       }
     ?>
-  </p>
-</footer>
+      </p>
+      <!-- IP Geolocation Section -->
+      <div class="location-section">
+        <h3>Your Location</h3>
+        <p id="location"></p>
+      </div>
+    </div>
+  </footer>
 
   <!-- Popup Notification -->
   <?php if (isset($_GET['signup']) && $_GET['signup'] == 'success'): ?>
@@ -239,6 +262,62 @@ session_start();
         }, 1000);
       }, 3000);
     }
+  });
+  // Daily Quote Fetch
+  document.addEventListener("DOMContentLoaded", function() {
+    // Daily Quote Fetch
+    const quoteUrl = 'https://api.quotable.io/random';
+    const quoteElement = document.getElementById('quote');
+
+    fetch(quoteUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Check if data is available
+        if (data && data.content && data.author) {
+          quoteElement.innerHTML = `${data.content} — ${data.author}`;
+        } else {
+          quoteElement.innerHTML = 'No quote available at the moment.';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching quote:', error);
+        quoteElement.innerHTML = 'Could not load quote. Please try again later.';
+      });
+
+    // IP Geolocation Fetch
+    const apiKey = ''; // Replace with your API key
+    const geoUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}`;
+    fetch(geoUrl)
+      .then(response => response.json())
+      .then(data => {
+        const locationElement = document.getElementById('location');
+        locationElement.innerHTML = `You are located in ${data.city}, ${data.country_name}`;
+      })
+      .catch(error => {
+        console.error('Error fetching location data:', error);
+      });
+
+    // GitHub Profile Fetch
+    const username = 'Normious'; // Replace with your GitHub username
+    const githubUrl = `https://api.github.com/users/${username}`;
+    fetch(githubUrl)
+      .then(response => response.json())
+      .then(data => {
+        const githubElement = document.getElementById('github-profile');
+        githubElement.innerHTML = `
+          Name: ${data.name}<br>
+          Repositories: ${data.public_repos}<br>
+          Followers: ${data.followers}<br>
+        `;
+      })
+      .catch(error => {
+        console.error('Error fetching GitHub profile:', error);
+      });
   });
   </script>
 </body>
