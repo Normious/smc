@@ -1,3 +1,4 @@
+// remove .txt extension and save the file as contact.php
 <?php
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -22,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $smtp_host = 'smtp.gmail.com';
     $smtp_port = 587;
     $smtp_username = 'emmanueljin101@gmail.com';
-    $smtp_password = 'pyke vkzs lhkh zgev'; // Replace with your App Password
+    $smtp_password = ''; // Replace with your App Password
 
     $mail = new PHPMailer();
     $mail->SMTPDebug = 0; // Disable debug output

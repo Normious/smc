@@ -196,6 +196,9 @@ session_start();
         <?php
       $currentPage = basename($_SERVER['REQUEST_URI']);
       switch ($currentPage) {
+        case 'home.php?login=success':
+          echo 'Home';
+          break;
         case 'home.php':
           echo 'Home';
           break;

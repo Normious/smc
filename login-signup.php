@@ -67,9 +67,9 @@
         <form action="register.php" method="post">
           <h1>Create Account</h1>
           <br>
-          <input type="text" name="name" placeholder="Name" />
-          <input type="email" name="email" placeholder="Email" />
-          <input type="password" name="password" placeholder="Password" />
+          <input type="text" name="name" placeholder="Name" required/>
+          <input type="email" name="email" placeholder="Email" required/>
+          <input type="password" name="password" placeholder="Password" required/>
           <button>Sign Up</button>
         </form>
       </div>
@@ -77,8 +77,8 @@
         <form action="login.php" method="post">
           <h1>Sign in</h1>
           <br>
-          <input type="email" name="email" placeholder="Email" />
-          <input type="password" name="password" placeholder="Password" />
+          <input type="email" name="email" placeholder="Email" required/>
+          <input type="password" name="password" placeholder="Password" required/>
           <a href="#">Forgot your password?</a>
           <button>Sign In</button>
         </form>
