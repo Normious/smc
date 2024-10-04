@@ -79,6 +79,11 @@ if (!isset($_SESSION['username']) || !isset($_SESSION['user_id'])) {
                     <li><strong>6. Take Breaks:</strong> Encourage teens to take regular breaks while livestreaming to avoid burnout and help them stay mentally healthy.</li>
                 </ul>
 
+                <!-- Add a YouTube video -->
+                <div class="youtube-video">
+                    <iframe width="100%" height="400" src="https://www.youtube.com/embed/UUvhA8FnlDA?si=_PRT5MQWL2sAx_uy" frameborder="0" allowfullscreen></iframe>
+                </div>
+
                 <p>By following these tips, teens can enjoy the benefits of livestreaming while minimizing the risks of inappropriate interactions or privacy breaches.</p>
             </div>
         </section>
