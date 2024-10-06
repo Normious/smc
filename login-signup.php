@@ -79,7 +79,6 @@
           <br>
           <input type="email" name="email" placeholder="Email" required/>
           <input type="password" name="password" placeholder="Password" required/>
-          <a href="#">Forgot your password?</a>
           <button>Sign In</button>
         </form>
       </div>

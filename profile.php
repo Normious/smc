@@ -41,7 +41,7 @@ if (isset($_POST['action']) && $_POST['action'] === 'delete_account') {
 
     // Log the user out after deleting the account
     session_destroy();
-    header("Location: auth.html?account_deleted=true");
+    header("Location: home.php?account_deleted=true");
     exit();
 }
 

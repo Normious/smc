@@ -250,6 +250,8 @@ session_start();
   <div class="popup" id="popup">Signup Successful!</div>
   <?php elseif (isset($_GET['login']) && $_GET['login'] == 'success'): ?>
   <div class="popup" id="popup">Login Successful!</div>
+  <?php elseif (isset($_GET['account_deleted']) && $_GET['account_deleted'] == 'true'): ?>
+    <div class="popup" id="popup">Account Deleted!</div>
   <?php endif; ?>
 
   <script>
@@ -293,7 +295,7 @@ session_start();
       });
 
     // IP Geolocation Fetch
-    const apiKey = ''; // Replace with your API key
+    const apiKey = '91ffca0544eb4c8a891cd011b45673f4'; // Replace with your API key
     const geoUrl = `https://api.ipgeolocation.io/ipgeo?apiKey=${apiKey}`;
     fetch(geoUrl)
       .then(response => response.json())
