@@ -1,9 +1,8 @@
-// remove .txt extension and save the file as config.php
 <?php
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "user_auth";
+$username = "smc.user";
+$password = "1234567890";
+$dbname = "smc_database";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,11 +1,10 @@
-// remove .txt extension and save the file as search.php
 <?php
 // search.php
 
 // Database connection
 $host = 'localhost';
-$user = 'root';
-$password = '';
+$user = 'smc.user';
+$password = '1234567890';
 $dbname = 'smc_database';
 
 $conn = new mysqli($host, $user, $password, $dbname);
